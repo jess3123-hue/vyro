@@ -85,7 +85,7 @@ document.querySelectorAll('.share').forEach(b=>b.addEventListener('click',async(
 document.querySelectorAll('.nav').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));a.classList.add('active')}));
 
 const studio=document.querySelector('#studio'),studioTitle=document.querySelector('#studioTitle'),videoFile=document.querySelector('#videoFile'),videoPreview=document.querySelector('#videoPreview');
-function openCreator(kind='video'){studio.classList.remove('hidden');studioTitle.textContent=kind==='video'?'Create a video':kind==='youtube'?'Create a YouTube Short':'Create a TikTok Short';studio.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>videoFile.click(),250)}
+function openCreator(kind='video'){studio.classList.remove('hidden');studioTitle.textContent=kind==='video'?'Create a video':kind==='youtube'?'Create a YouTube Short':'Create a TikTok Short';document.querySelector('#studioHelp').textContent='Step 1: Tap Choose a video from your device. Then use the editor below to trim, add text, and apply a filter.';studio.scrollIntoView({behavior:'smooth',block:'start'});}
 document.querySelectorAll('[data-kind]').forEach(btn=>btn.addEventListener('click',()=>openCreator(btn.dataset.kind)));
 document.querySelector('#heroCreate').addEventListener('click',()=>openCreator('video'));
 document.querySelectorAll('a.nav[href="#create"]').forEach(a=>a.addEventListener('click',()=>{studio.classList.remove('hidden')}));
